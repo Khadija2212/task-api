@@ -41,11 +41,10 @@ docker:
     DOCKER_TLS_CERTDIR: "/certs"
     DOCKER_BUILDKIT: "0"
   before_script:
-    - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+    - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
   script:
-    - ls -la
-    - ls -la target/
-    - docker build --no-cache -t $DOCKER_IMAGE:latest .
-    - docker push $DOCKER_IMAGE:latest
+    - echo "IMAGE=$DOCKER_IMAGE"
+    - docker build --no-cache -t "${DOCKER_IMAGE}:latest" .
+    - docker push "${DOCKER_IMAGE}:latest"
   only:
     - develop
