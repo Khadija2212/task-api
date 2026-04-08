@@ -4,11 +4,11 @@
 
     <appender name="LOKI" class="com.github.loki4j.logback.Loki4jAppender">
         <http>
-            <url>http://${LOKI_URL:localhost}:3100/loki/api/v1/push</url>
+            <url>http://192.168.1.11:3100/loki/api/v1/push</url>
         </http>
         <format>
             <label>
-                <pattern>app=${spring.application.name},host=${HOSTNAME}</pattern>
+                <pattern>app=task-api</pattern>
             </label>
             <message>
                 <pattern>%-5level [%thread] %logger{36} - %msg%n</pattern>
