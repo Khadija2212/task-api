@@ -27,6 +27,7 @@ build:
   artifacts:
     paths:
       - target/*.jar
+      - Dockerfile
   cache:
     paths:
       - .m2/repository
